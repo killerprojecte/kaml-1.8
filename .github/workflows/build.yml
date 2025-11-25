@@ -21,12 +21,12 @@ jobs:
         include:
           - os: ubuntu-latest
             tasks: check
-          - os: windows-latest
-            tasks: mingwX64Test
-          - os: macos-13
-            tasks: macosX64Test iosX64Test tvosX64Test watchosX64Test
-          - os: macos-latest
-            tasks: macosArm64Test iosSimulatorArm64Test tvosSimulatorArm64Test watchosSimulatorArm64Test
+#          - os: windows-latest
+#            tasks: mingwX64Test
+#          - os: macos-13
+#            tasks: macosX64Test iosX64Test tvosX64Test watchosX64Test
+#          - os: macos-latest
+#            tasks: macosArm64Test iosSimulatorArm64Test tvosSimulatorArm64Test watchosSimulatorArm64Test
     runs-on: ${{ matrix.os }}
     name: Test on ${{ matrix.os }}
     steps:

@@ -41,7 +41,7 @@ fun Project.configureAssemble() {
                 from(tasks.named("${publicationName}JavadocJar"))
                 from(tasks.named("${publicationName}SourcesJar"))
 
-                with(
+                /*with(
                     copySpec()
                         .from(tasks.named("sign${publicationName.capitalize()}Publication"))
                         .rename { fileName ->
@@ -52,7 +52,7 @@ fun Project.configureAssemble() {
                                 else -> fileName
                             }
                         },
-                )
+                )*/
 
                 with(
                     copySpec()

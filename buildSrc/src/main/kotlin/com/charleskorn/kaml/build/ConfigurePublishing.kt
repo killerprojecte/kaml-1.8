@@ -59,7 +59,7 @@ fun Project.configurePublishing() {
     }
 
     createPublishingTasks(repoUsername, repoPassword, validateCredentialsTask)
-    createSigningTasks()
+    // createSigningTasks()
     createReleaseTasks(validateCredentialsTask)
 }
 

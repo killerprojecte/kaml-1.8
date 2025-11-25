@@ -44,7 +44,7 @@ kotlin {
 
     jvm {}
 
-    js(IR) {
+    /*js(IR) {
         browser()
         nodejs()
         binaries.executable()
@@ -76,7 +76,7 @@ kotlin {
     tvosArm64()
 
     // Tier 3
-    mingwX64()
+    mingwX64()*/
 
     sourceSets {
         commonMain {

@@ -90,7 +90,9 @@ kotlin {
         commonTest {
             dependencies {
                 implementation("io.kotest:kotest-assertions-core:5.9.1")
+                implementation("io.kotest:kotest-framework-api:5.9.1")
                 implementation("io.kotest:kotest-framework-engine:5.9.1")
+                implementation("io.kotest:kotest-framework-datatest:5.9.1")
                 // Overriding coroutines' version to solve a problem with WASM JS tests.
                 // See https://kotlinlang.slack.com/archives/CDFP59223/p1736191408326039?thread_ts=1734964013.996149&cid=CDFP59223
                 runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")

@@ -65,7 +65,7 @@ jobs:
     runs-on: macos-latest
     env:
       TERM: xterm-256color
-      GPG_KEY_ID: 6D76AD03 # Run `gpg -K` to get this, take last eight characters
+      GPG_KEY_ID: 820221FB # Run `gpg -K` to get this, take last eight characters
 
     permissions:
       contents: write # Required to be able to publish releases, see https://docs.github.com/en/rest/reference/permissions-required-for-github-apps#permission-on-contents
@@ -130,14 +130,14 @@ jobs:
             git describe --tags --abbrev=0 --exact-match || true
             echo "skip=true" >> $GITHUB_OUTPUT
           fi
-        if: github.repository == 'charleskorn/kaml' && github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: github.repository == 'killerprojecte/kaml-1.8' && github.ref == 'refs/heads/main' && github.event_name == 'push'
 
       - name: Assemble release
         run: ./gradlew assembleRelease
         env:
           GPG_KEY_RING: ${{ secrets.GPG_KEY_RING }} # Run `gpg --export-secret-keys "<key user name goes here>" | base64` to get this
           GPG_KEY_PASSPHRASE: ${{ secrets.GPG_KEY_PASSPHRASE }}
-        if: github.repository == 'charleskorn/kaml' && github.ref == 'refs/heads/main' && github.event_name == 'push' && steps.get_tag.outputs.skip != 'true'
+        if: github.repository == 'killerprojecte/kaml-1.8' && github.ref == 'refs/heads/main' && github.event_name == 'push' && steps.get_tag.outputs.skip != 'true'
 
       - name: Publish release
         run: ./gradlew publishRelease
@@ -146,7 +146,7 @@ jobs:
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           GPG_KEY_RING: ${{ secrets.GPG_KEY_RING }} # Run `gpg --export-secret-keys "<key user name goes here>" | base64` to get this
           GPG_KEY_PASSPHRASE: ${{ secrets.GPG_KEY_PASSPHRASE }}
-        if: github.repository == 'charleskorn/kaml' && github.ref == 'refs/heads/main' && github.event_name == 'push' && steps.get_tag.outputs.skip != 'true'
+        if: github.repository == 'killerprojecte/kaml-1.8' && github.ref == 'refs/heads/main' && github.event_name == 'push' && steps.get_tag.outputs.skip != 'true'
 
       - name: Add artifacts to GitHub release
         uses: softprops/action-gh-release@v2.4.2
@@ -157,4 +157,4 @@ jobs:
           draft: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: github.repository == 'charleskorn/kaml' && github.ref == 'refs/heads/main' && github.event_name == 'push' && steps.get_tag.outputs.skip != 'true'
+        if: github.repository == 'killerprojecte/kaml-1.8' && github.ref == 'refs/heads/main' && github.event_name == 'push' && steps.get_tag.outputs.skip != 'true'

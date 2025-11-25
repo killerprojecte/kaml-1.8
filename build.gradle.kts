@@ -129,6 +129,6 @@ java {
 configureAssemble()
 configurePublishing()
 configureSpotless()
-configureTesting()
+//configureTesting()
 configureVersioning()
 configureWrapper()

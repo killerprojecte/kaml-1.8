@@ -25,7 +25,7 @@ import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 
 fun Project.configureVersioning() {
-   apply<ReckonPlugin>()
+    apply<ReckonPlugin>()
 
     configure<ReckonExtension> {
         setDefaultInferredScope("patch")
